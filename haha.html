@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPP Kelas III Malakoni Enggano</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #0077b6, #00b4d8);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .logo {
+      height: 55px;
+      width: auto;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffdd00;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url("Foto Kantor Pelabuhan.jpg") center/cover no-repeat;
+      height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero h2, .hero p, .hero button {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin: 0;
+      font-weight: 700;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 650px;
+      margin: 20px auto;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .hero button {
+      background: #ffdd00;
+      color: #000;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero button:hover {
+      background: #e6c800;
+      transform: translateY(-2px);
+    }
+
+    /* Info Section */
+    .info-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: white;
+    }
+
+    .info-section h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      color: #0077b6;
+    }
+
+    .info-section p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Cards */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 290px;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 18px;
+    }
+
+    .card-content h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #023e8a;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="heading">
+      <img src="Logo_Kementerian_Perhubungan_Indonesia_(Kemenhub).png" alt="Logo Kemenhub" class="logo">
+      UPP Kelas III Malakoni Enggano
+    </h1>
+    <nav>
+      <a href="haha.html">Beranda</a>
+      <a href="haha2.html">Input Data</a>
+      <a href="hehe.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Unit Penyelenggara Pelabuhan Kelas III Malakoni Enggano</h2>
+    <p>UPP Kelas III Malakoni Enggano berada di bawah dan bertanggung jawab kepada Menteri Perhubungan melalui Direktur Jenderal Perhubungan Laut</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Tentang Pelabuhan</h3>
+    <p>
+      Pelabuhan Unit Penyelenggara Pelabuhan (UPP) Malakoni Enggano menyelenggarakan pelayanan trayek kapal yang melayani rute pelayaran dari dan menuju Pulau Enggano, dengan tujuan Pelabuhan Pulau Baai serta Pelabuhan Linau.
+    </p>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="foto MH Thamrin.jpg" alt="Jadwal Kapal">
+        <div class="card-content">
+          <h4>KM Husni Thamrin</h4>
+          <p>Kapal Perintis melayani Penyebrangan Pulau Baai - Enggano - Linau</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Foto KMP Pulo Tello.jpg" alt="Layanan Kargo">
+        <div class="card-content">
+          <h4>KMP Pulo Tello</h4>
+          <p>Kapal Penyebrangan melayani Penyebrangan Pulau Baai - Enggano</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 UPP Kelas III Malakoni Enggano</p>
+    <p>Semua Hak Dilindungi</p>
+  </footer>
+
+</body>
+</html>

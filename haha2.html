@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Data Kapal & Tabel</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f9fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #0077b6, #00b4d8);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.logout {
+      background: #ff4d4d;
+      padding: 6px 14px;
+      border-radius: 6px;
+    }
+    nav a.logout:hover {
+      background: #cc0000;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    h2 {
+      color: #005b96;
+      margin-bottom: 15px;
+    }
+
+    /* Form Card */
+    .form-container {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: #005b96;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border 0.3s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border: 1px solid #0077b6;
+    }
+    button {
+      background: #0077b6;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #005f8e;
+    }
+
+    /* Table */
+    table {
+      width: 95%;
+      max-width: 1000px;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #0077b6;
+      color: white;
+      cursor: pointer;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+    .btn-edit {
+      background: #00b4d8;
+      color: white;
+      padding: 5px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-edit:hover {
+      background: #0090a8;
+    }
+    .btn-delete {
+      background: #ff4d4d;
+      color: white;
+      padding: 5px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-delete:hover {
+      background: #cc0000;
+    }
+
+    /* Chart */
+    .chart-container {
+      width: 90%;
+      max-width: 800px;
+      margin-bottom: 50px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="heading">
+      <img src="Logo_Kementerian_Perhubungan_Indonesia_(Kemenhub).png" alt="Logo Kemenhub" class="logo">
+      UPP Kelas III Malakoni Enggano
+    </h1>
+    <nav>
+      <a href="haha.html">Beranda</a>
+      <a href="haha2.html">Input Data</a>
+      <a href="hehe.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Input Data Kedatangan Kapal</h2>
+    <div class="form-container">
+
+      <div class="form-group">
+        <label>Nama Kapal</label>
+        <input type="text" id="shipName" placeholder="Masukkan nama kapal">
+      </div>
+
+      <div class="form-group">
+        <label>Tanggal Kedatangan</label>
+        <input type="date" id="arrivalDate">
+      </div>
+
+      <div class="form-group">
+        <label>Tanggal Keberangkatan</label>
+        <input type="date" id="departureDate">
+      </div>
+
+      <div class="form-group">
+        <label>Jumlah Penumpang</label>
+        <input type="number" id="passengerCount" placeholder="Masukkan jumlah penumpang">
+      </div>
+
+      <div class="form-group">
+        <label>Jumlah Muatan (Ton)</label>
+        <input type="number" id="cargoAmount" placeholder="Masukkan jumlah muatan">
+      </div>
+
+      <div class="form-group">
+        <label>Bukti Dokumen</label>
+        <input type="text" id="documentProof" placeholder="Masukkan nama dokumen">
+      </div>
+
+      <button onclick="saveData()">💾 Simpan Data</button>
+    </div>
+
+    <h2>Database Kedatangan Kapal</h2>
+    <table id="shipTable">
+      <thead>
+        <tr>
+          <th>Nama Kapal</th>
+          <th onclick="sortTable()">Tanggal Kedatangan ⬍</th>
+          <th>Tanggal Keberangkatan</th>
+          <th>Jumlah Penumpang</th>
+          <th>Jumlah Muatan (Ton)</th>
+          <th>Bukti Dokumen</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Grafik Jumlah Penumpang</h2>
+    <div class="chart-container">
+      <canvas id="passengerChart"></canvas>
+    </div>
+
+    <h2>Grafik Jumlah Muatan</h2>
+    <div class="chart-container">
+      <canvas id="cargoChart"></canvas>
+    </div>
+  </main>
+
+  <footer>
+    &copy; UPP Kelas III Malakoni Enggano | Semua Hak Dilindungi
+  </footer>
+
+  <script>
+    let shipData = JSON.parse(localStorage.getItem("shipData")) || [];
+    let sortAsc = true;
+    let editIndex = -1;
+    let passengerChart, cargoChart;
+
+    function saveData() {
+      const shipName = document.getElementById("shipName").value;
+      const arrivalDate = document.getElementById("arrivalDate").value;
+      const departureDate = document.getElementById("departureDate").value;
+      const passengerCount = document.getElementById("passengerCount").value;
+      const cargoAmount = document.getElementById("cargoAmount").value;
+      const documentProof = document.getElementById("documentProof").value;
+
+      if (!shipName || !arrivalDate || !departureDate || !passengerCount || !cargoAmount || !documentProof) {
+        alert("⚠️ Semua field harus diisi!");
+        return;
+      }
+
+      if (editIndex === -1) {
+        shipData.push({ shipName, arrivalDate, departureDate, passengerCount, cargoAmount, documentProof });
+      } else {
+        shipData[editIndex] = { shipName, arrivalDate, departureDate, passengerCount, cargoAmount, documentProof };
+        editIndex = -1;
+      }
+
+      localStorage.setItem("shipData", JSON.stringify(shipData));
+      displayTable();
+      resetForm();
+      updateChart();
+    }
+
+    function displayTable() {
+      const tbody = document.querySelector("#shipTable tbody");
+      tbody.innerHTML = "";
+      shipData.forEach((data, index) => {
+        const formattedArrival = new Date(data.arrivalDate).toLocaleDateString("id-ID", {
+          day: "numeric", month: "long", year: "numeric"
+        });
+        const formattedDeparture = new Date(data.departureDate).toLocaleDateString("id-ID", {
+          day: "numeric", month: "long", year: "numeric"
+        });
+        const row = `<tr>
+          <td>${data.shipName}</td>
+          <td>${formattedArrival}</td>
+          <td>${formattedDeparture}</td>
+          <td>${data.passengerCount}</td>
+          <td>${data.cargoAmount}</td>
+          <td>${data.documentProof}</td>
+          <td>
+            <button class="btn-edit" onclick="editData(${index})">✏️ Edit</button>
+            <button class="btn-delete" onclick="deleteData(${index})">🗑️ Hapus</button>
+          </td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    function editData(index) {
+      const data = shipData[index];
+      document.getElementById("shipName").value = data.shipName;
+      document.getElementById("arrivalDate").value = data.arrivalDate;
+      document.getElementById("departureDate").value = data.departureDate;
+      document.getElementById("passengerCount").value = data.passengerCount;
+      document.getElementById("cargoAmount").value = data.cargoAmount;
+      document.getElementById("documentProof").value = data.documentProof;
+      editIndex = index;
+    }
+
+    function deleteData(index) {
+      if (confirm("Yakin mau hapus data ini?")) {
+        shipData.splice(index, 1);
+        localStorage.setItem("shipData", JSON.stringify(shipData));
+        displayTable();
+        updateChart();
+      }
+    }
+
+    function sortTable() {
+      shipData.sort((a, b) => {
+        return sortAsc 
+          ? new Date(a.arrivalDate) - new Date(b.arrivalDate)
+          : new Date(b.arrivalDate) - new Date(a.arrivalDate);
+      });
+      sortAsc = !sortAsc; 
+      displayTable();
+    }
+
+    function resetForm() {
+      document.getElementById("shipName").value = "";
+      document.getElementById("arrivalDate").value = "";
+      document.getElementById("departureDate").value = "";
+      document.getElementById("passengerCount").value = "";
+      document.getElementById("cargoAmount").value = "";
+      document.getElementById("documentProof").value = "";
+    }
+
+    function updateChart() {
+      const labels = shipData.map(data => data.shipName);
+      const passengers = shipData.map(data => Number(data.passengerCount));
+      const cargo = shipData.map(data => Number(data.cargoAmount));
+
+      if (passengerChart) passengerChart.destroy();
+      if (cargoChart) cargoChart.destroy();
+
+      // Chart Penumpang
+      const ctx1 = document.getElementById("passengerChart").getContext("2d");
+      passengerChart = new Chart(ctx1, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "Jumlah Penumpang",
+            data: passengers,
+            backgroundColor: "rgba(54, 162, 235, 0.7)",
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+
+      // Chart Muatan
+      const ctx2 = document.getElementById("cargoChart").getContext("2d");
+      cargoChart = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "Jumlah Muatan (Ton)",
+            data: cargo,
+            backgroundColor: "rgba(255, 159, 64, 0.7)",
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    displayTable();
+    updateChart();
+  </script>
+</body>
+</html>
